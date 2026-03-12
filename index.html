@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Andy De La Cruz | Próximamente</title>
-
 <style>
 body{
   margin:0;
@@ -58,46 +57,19 @@ h1{
   to{transform:translateX(10px);}
 }
 
-.form{
-  margin-top:20px;
-}
-
-input{
-  padding:12px;
-  margin:6px;
-  border:none;
-  border-radius:8px;
-  width:200px;
-}
-
-button{
-  padding:12px 20px;
-  border:none;
-  border-radius:10px;
-  background:white;
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-button:hover{
-  transform:scale(1.1);
-}
-
-.success{
-  display:none;
-  margin-top:15px;
-  font-size:18px;
-}
-
 /* Redes sociales burbujas */
+.connect{
+  margin-top:30px;
+  font-size:20px;
+  font-weight:bold;
+}
+
 .social{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:20px;
-  margin-top:30px;
+  margin-top:20px;
 }
 
 .social a{
@@ -124,9 +96,9 @@ button:hover{
 }
 
 .bubble img{
-  width:100%;
-  height:100%;
-  object-fit:cover; /* Esto hace que el logo cuadrado se adapte al círculo */
+  width:60%;
+  height:60%;
+  object-fit:contain;
 }
 
 .social a:hover .bubble{
@@ -146,7 +118,6 @@ button:hover{
 }
 </style>
 </head>
-
 <body>
 <div class="overlay">
 
@@ -161,16 +132,8 @@ COMING SOON… 👀
 ➡️ ➡️ ➡️
 </div>
 
-<div class="form">
-<input type="text" id="user" placeholder="Crear usuario"><br>
-<input type="password" id="pass" placeholder="Crear contraseña"><br><br>
-<button onclick="crear()">Enterarme de novedades</button>
-</div>
-
-<div class="success" id="ok">
-✅ ¡Bienvenido a PandyLoverFamily!<br>
-Ahora recibirás las nuevas noticias y novedades de Andy De La Cruz.
-</div>
+<!-- Título antes de las redes -->
+<div class="connect">Conecta conmigo en mis redes 👇🏻</div>
 
 <!-- Redes sociales -->
 <div class="social">
@@ -201,15 +164,5 @@ Ahora recibirás las nuevas noticias y novedades de Andy De La Cruz.
 </div>
 
 </div>
-
-<script>
-function crear(){
-  let usuario=document.getElementById("user").value;
-  let pass=document.getElementById("pass").value;
-  if(usuario!=="" && pass!==""){
-    document.getElementById("ok").style.display="block";
-  }
-}
-</script>
 </body>
 </html>
