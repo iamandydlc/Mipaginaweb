@@ -2,103 +2,153 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Andy De La Cruz | Próximamente</title>
 
 <style>
-
+/* ---------------------- Estilos generales ---------------------- */
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-
-background-image:url("./promo.jpg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
-
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-text-align:center;
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background-image:url("./promo.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.55);
-padding:40px;
-border-radius:20px;
-max-width:500px;
+  background:rgba(0,0,0,0.55);
+  padding:40px;
+  border-radius:20px;
+  max-width:600px;
 }
 
+/* ---------------------- Títulos y animaciones ---------------------- */
 h1{
-font-size:40px;
-letter-spacing:2px;
-margin-bottom:10px;
+  font-size:40px;
+  letter-spacing:2px;
+  margin-bottom:10px;
 }
 
 .coming{
-font-size:26px;
-margin-top:10px;
-animation:blink 1.5s infinite;
+  font-size:26px;
+  margin-top:10px;
+  animation:blink 1.5s infinite;
 }
 
 @keyframes blink{
-0%{opacity:1;}
-50%{opacity:0.4;}
-100%{opacity:1;}
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
 }
 
 .arrows{
-font-size:28px;
-margin:15px 0;
-animation:mover 1s infinite alternate;
+  font-size:28px;
+  margin:15px 0;
+  animation:mover 1s infinite alternate;
 }
 
 @keyframes mover{
-from{transform:translateX(-10px);}
-to{transform:translateX(10px);}
+  from{transform:translateX(-10px);}
+  to{transform:translateX(10px);}
 }
 
+/* ---------------------- Formulario ---------------------- */
 .form{
-margin-top:20px;
+  margin-top:20px;
 }
 
 input{
-padding:12px;
-margin:6px;
-border:none;
-border-radius:8px;
-width:200px;
+  padding:12px;
+  margin:6px;
+  border:none;
+  border-radius:8px;
+  width:200px;
 }
 
 button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:white;
-color:black;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  background:white;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
 }
 
 button:hover{
-transform:scale(1.1);
+  transform:scale(1.1);
 }
 
 .success{
-display:none;
-margin-top:15px;
-font-size:18px;
+  display:none;
+  margin-top:15px;
+  font-size:18px;
+}
+
+/* ---------------------- Redes sociales en burbujas ---------------------- */
+.social{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.social a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+  cursor:pointer;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+.bubble{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:8px;
+  transition:0.3s;
+}
+
+.social a:hover .bubble{
+  transform:scale(1.2);
+  box-shadow:0 0 15px #00ffff;
+}
+
+.social img{
+  width:35px;
+  height:35px;
+}
+
+.social span{
+  margin-top:4px;
+  font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -117,42 +167,54 @@ COMING SOON… 👀
 ➡️ ➡️ ➡️
 </div>
 
+<!-- Formulario de registro -->
 <div class="form">
-
 <input type="text" id="user" placeholder="Crear usuario">
-
 <br>
-
 <input type="password" id="pass" placeholder="Crear contraseña">
-
 <br><br>
-
 <button onclick="crear()">Enterarme de novedades</button>
-
 </div>
 
 <div class="success" id="ok">
 ✅ Usuario creado.  
-Pronto recibirás novedades exclusivas.
+Ahora recibirás las nuevas noticias y novedades de Andy De La Cruz.
+</div>
+
+<!-- Redes sociales -->
+<div class="social">
+  <a href="https://whatsapp.com/channel/0029VbCKCOyBadmYKrAwPg3y" target="_blank">
+    <div class="bubble"><img src="./whatsapp.png" alt="WhatsApp"></div>
+    <span>WhatsApp</span>
+  </a>
+  <a href="https://www.facebook.com/share/1AomuuzQ6a/" target="_blank">
+    <div class="bubble"><img src="./facebook.png" alt="Facebook"></div>
+    <span>Facebook</span>
+  </a>
+  <a href="https://youtube.com/@iam_andydlc" target="_blank">
+    <div class="bubble"><img src="./youtube.png" alt="YouTube"></div>
+    <span>YouTube</span>
+  </a>
+  <a href="https://www.tiktok.com/@iam_andydlc" target="_blank">
+    <div class="bubble"><img src="./tiktok.png" alt="TikTok"></div>
+    <span>TikTok</span>
+  </a>
+  <a href="https://twitch.com/iam_andydlc" target="_blank">
+    <div class="bubble"><img src="./twitch.png" alt="Twitch"></div>
+    <span>Twitch</span>
+  </a>
 </div>
 
 </div>
 
 <script>
-
 function crear(){
-
-let usuario=document.getElementById("user").value;
-let pass=document.getElementById("pass").value;
-
-if(usuario!=="" && pass!==""){
-
-document.getElementById("ok").style.display="block";
-
+  let usuario=document.getElementById("user").value;
+  let pass=document.getElementById("pass").value;
+  if(usuario!=="" && pass!==""){
+    document.getElementById("ok").style.display="block";
+  }
 }
-
-}
-
 </script>
 
 </body>
