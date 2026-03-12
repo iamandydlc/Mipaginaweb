@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Campaña | Próximamente</title>
+<title>Andy De La Cruz | Próximamente</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:url("promo.jpg") center/cover no-repeat fixed;
-color:white;
-text-align:center;
+
+background-image:url("./promo.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-height:100vh;
-backdrop-filter:brightness(60%);
+color:white;
+text-align:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.55);
 padding:40px;
 border-radius:20px;
+max-width:500px;
 }
 
 h1{
-font-size:45px;
-letter-spacing:3px;
+font-size:40px;
+letter-spacing:2px;
 margin-bottom:10px;
 }
 
 .coming{
-font-size:28px;
+font-size:26px;
+margin-top:10px;
 animation:blink 1.5s infinite;
 }
 
 @keyframes blink{
 0%{opacity:1;}
-50%{opacity:0.3;}
+50%{opacity:0.4;}
 100%{opacity:1;}
 }
 
 .arrows{
-font-size:30px;
+font-size:28px;
 margin:15px 0;
-animation:move 1s infinite alternate;
+animation:mover 1s infinite alternate;
 }
 
-@keyframes move{
+@keyframes mover{
 from{transform:translateX(-10px);}
 to{transform:translateX(10px);}
 }
 
 .form{
-margin-top:25px;
+margin-top:20px;
 }
 
 input{
 padding:12px;
-margin:8px;
+margin:6px;
 border:none;
 border-radius:8px;
-width:220px;
+width:200px;
 }
 
 button{
@@ -101,34 +108,32 @@ font-size:18px;
 <h1>Andy De La Cruz</h1>
 
 <div class="coming">
-
 PRÓXIMAMENTE… 🚀  
 <br>
 COMING SOON… 👀
-
 </div>
 
 <div class="arrows">
-➡️➡️➡️
+➡️ ➡️ ➡️
 </div>
 
 <div class="form">
 
 <input type="text" id="user" placeholder="Crear usuario">
 
+<br>
+
 <input type="password" id="pass" placeholder="Crear contraseña">
 
-<br>
+<br><br>
 
 <button onclick="crear()">Enterarme de novedades</button>
 
 </div>
 
 <div class="success" id="ok">
-
 ✅ Usuario creado.  
-Pronto recibirás novedades exclusivas…
-
+Pronto recibirás novedades exclusivas.
 </div>
 
 </div>
@@ -137,10 +142,10 @@ Pronto recibirás novedades exclusivas…
 
 function crear(){
 
-let u=document.getElementById("user").value;
-let p=document.getElementById("pass").value;
+let usuario=document.getElementById("user").value;
+let pass=document.getElementById("pass").value;
 
-if(u!=="" && p!==""){
+if(usuario!=="" && pass!==""){
 
 document.getElementById("ok").style.display="block";
 
@@ -151,5 +156,4 @@ document.getElementById("ok").style.display="block";
 </script>
 
 </body>
-
 </html>
