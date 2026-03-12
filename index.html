@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Andy De La Cruz | Redes Oficiales</title>
+<title>Andy De La Cruz</title>
 
 <style>
 
@@ -16,7 +16,8 @@ color:white;
 text-align:center;
 background:linear-gradient(270deg,#00c6ff,#0072ff,#00c6ff);
 background-size:600% 600%;
-animation:fondo 12s infinite;
+animation:fondo 10s infinite;
+overflow-y:auto;
 }
 
 @keyframes fondo{
@@ -26,41 +27,50 @@ animation:fondo 12s infinite;
 }
 
 .container{
-padding:40px 20px;
+padding:60px 20px;
 }
 
 h1{
-font-size:32px;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.redes{
+display:flex;
+flex-direction:column;
+gap:15px;
+align-items:center;
+margin-top:30px;
 }
 
 .redes a{
-display:block;
-margin:15px auto;
+width:260px;
 padding:15px;
-width:250px;
-background:white;
-color:black;
-border-radius:12px;
+background:rgba(255,255,255,0.15);
+border-radius:30px;
 text-decoration:none;
+color:white;
 font-weight:bold;
+backdrop-filter:blur(10px);
 transition:0.3s;
 }
 
 .redes a:hover{
-transform:scale(1.1);
+transform:scale(1.08);
+background:rgba(255,255,255,0.3);
 }
 
 .seccion{
-margin-top:60px;
+margin-top:120px;
 padding:40px;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.4);
 border-radius:20px;
 }
 
 button{
-padding:15px 30px;
+padding:14px 28px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 background:#00c6ff;
 color:white;
 font-weight:bold;
@@ -73,19 +83,19 @@ display:none;
 margin-top:30px;
 }
 
-input{
+.login button{
 display:block;
-margin:10px auto;
-padding:10px;
 width:250px;
-border-radius:8px;
-border:none;
+margin:10px auto;
 }
 
-.opciones button{
+input{
 display:block;
-width:250px;
+width:240px;
 margin:10px auto;
+padding:10px;
+border-radius:8px;
+border:none;
 }
 
 .bienvenida{
@@ -96,16 +106,26 @@ padding:30px;
 border-radius:15px;
 }
 
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<canvas id="confetti"></canvas>
+
 <div class="container">
 
 <h1>Andy De La Cruz</h1>
-<p>Mis redes oficiales</p>
+
+<p>Creador de Contenido</p>
 
 <div class="redes">
 
@@ -125,15 +145,13 @@ border-radius:15px;
 
 <h2>¿Quieres obtener información más exclusiva de Andy?</h2>
 
-<p>Únete a la comunidad oficial.</p>
+<p>Únete a la comunidad oficial PandyLoverFamily.</p>
 
-<button onclick="mostrarLogin()">Unirme a PandyLoverFamily</button>
+<button onclick="mostrarLogin()">Unirme</button>
 
 <div class="login" id="login">
 
 <h3>Iniciar sesión</h3>
-
-<div class="opciones">
 
 <button onclick="loginSocial()">Entrar con Gmail</button>
 
@@ -142,8 +160,6 @@ border-radius:15px;
 <button onclick="loginSocial()">Entrar con TikTok</button>
 
 <button onclick="loginSocial()">Entrar con número de teléfono</button>
-
-</div>
 
 <input type="email" id="email" placeholder="Correo">
 
@@ -179,19 +195,58 @@ document.getElementById("login").style.display="block";
 }
 
 function login(){
-
 let email=document.getElementById("email").value;
 let pass=document.getElementById("pass").value;
 
 if(email!=="" && pass!==""){
 document.getElementById("bienvenida").style.display="block";
 }
-
 }
 
 function loginSocial(){
 document.getElementById("bienvenida").style.display="block";
 }
+
+/* CONFETI */
+
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let pieces=[];
+
+for(let i=0;i<120;i++){
+pieces.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:8,
+speed:Math.random()*3+1
+});
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+pieces.forEach(p=>{
+
+ctx.fillStyle=`hsl(${Math.random()*360},100%,50%)`;
+
+ctx.fillRect(p.x,p.y,p.size,p.size);
+
+p.y+=p.speed;
+
+if(p.y>canvas.height)p.y=0;
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
 
 </script>
 
