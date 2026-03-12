@@ -1,225 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andy De La Cruz | Creador de Contenido</title>
-    <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
 
-        body {
-            color: white;
-            text-align: center;
-            background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed); /* Azul a celeste */
-            background-size: 400% 400%;
-            animation: gradientBG 12s ease infinite;
-            height: 100vh;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<title>Andy De La Cruz | Redes Oficiales</title>
 
-        header {
-            padding: 120px 20px;
-        }
+<style>
 
-        h1 {
-            font-size: 48px;
-            letter-spacing: 2px;
-        }
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:linear-gradient(270deg,#00c6ff,#0072ff,#00c6ff);
+background-size:600% 600%;
+animation:fondo 12s infinite;
+}
 
-        .subtitle {
-            margin-top: 10px;
-            font-size: 20px;
-            opacity: 0.9;
-        }
+@keyframes fondo{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
 
-        .section {
-            padding: 100px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+.container{
+padding:40px 20px;
+}
 
-        .social {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
+h1{
+font-size:32px;
+}
 
-        .btn {
-            padding: 16px 30px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            background: rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            transition: 0.4s;
-        }
+.redes a{
+display:block;
+margin:15px auto;
+padding:15px;
+width:250px;
+background:white;
+color:black;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
 
-        .btn:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px cyan;
-        }
+.redes a:hover{
+transform:scale(1.1);
+}
 
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
+.seccion{
+margin-top:60px;
+padding:40px;
+background:rgba(0,0,0,0.6);
+border-radius:20px;
+}
 
-        .card {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 35px;
-            border-radius: 20px;
-            width: 260px;
-            transition: 0.4s;
-        }
+button{
+padding:15px 30px;
+border:none;
+border-radius:10px;
+background:#00c6ff;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-        }
+.login{
+display:none;
+margin-top:30px;
+}
 
-        .fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1s;
-        }
+input{
+display:block;
+margin:10px auto;
+padding:10px;
+width:250px;
+border-radius:8px;
+border:none;
+}
 
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.opciones button{
+display:block;
+width:250px;
+margin:10px auto;
+}
 
-        footer {
-            padding: 50px;
-            opacity: 0.7;
-        }
+.bienvenida{
+display:none;
+margin-top:30px;
+background:#111;
+padding:30px;
+border-radius:15px;
+}
 
-        /* Animación de confeti */
-        .confeti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-        }
+</style>
 
-        .confeti span {
-            position: absolute;
-            display: block;
-            width: 10px;
-            height: 10px;
-            background: white;
-            opacity: 0.9;
-            animation: confeti 3s linear infinite;
-        }
-
-        @keyframes confeti {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
-    <!-- Animación de confeti -->
-    <div class="confeti" id="confeti">
-        <!-- Generamos algunos confeti con spans -->
-        <!-- Se puede ajustar el número de spans según la cantidad de confeti que quieras -->
-        <script>
-            for(let i=0; i<100; i++) {
-                let span = document.createElement('span');
-                span.style.left = Math.random() * 100 + 'vw';
-                span.style.animationDuration = 2 + Math.random() * 3 + 's';
-                span.style.animationDelay = Math.random() * 3 + 's';
-                span.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                document.getElementById('confeti').appendChild(span);
-            }
-        </script>
-    </div>
+<div class="container">
 
-    <header class="fade">
-        <h1>Andy De La Cruz</h1>
-        <p class="subtitle">Creador de Contenido</p>
-        <div class="social">
-            <a class="btn" href="https://whatsapp.com/channel/0029VbCKCOyBadmYKrAwPg3y">WhatsApp Channel</a>
-            <a class="btn" href="https://www.facebook.com/share/1AomuuzQ6a/">Facebook</a>
-            <a class="btn" href="https://youtube.com/@iam_andydlc">YouTube</a>
-            <a class="btn" href="https://www.tiktok.com/@iam_andydlc">TikTok</a>
-            <a class="btn" href="https://twitch.com/iam_andydlc">Twitch</a>
-        </div>
-    </header>
+<h1>Andy De La Cruz</h1>
+<p>Mis redes oficiales</p>
 
-    <section class="section fade">
-        <h2>Sobre mí</h2>
-        <p style="margin-top:20px;">
-            Soy creador de contenido digital. Comparto entretenimiento, tendencias, videos y streams para mi comunidad en diferentes plataformas.
-        </p>
-    </section>
+<div class="redes">
 
-    <section class="section fade">
-        <h2>Mi Contenido</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Videos</h3>
-                <p>Contenido creativo y entretenido para redes sociales.</p>
-            </div>
-            <div class="card">
-                <h3>Streaming</h3>
-                <p>Directos y entretenimiento en Twitch.</p>
-            </div>
-            <div class="card">
-                <h3>Comunidad</h3>
-                <p>Interacción con seguidores en todas mis redes.</p>
-            </div>
-        </div>
-    </section>
+<a href="https://whatsapp.com/channel/0029VbCKCOyBadmYKrAwPg3y">WhatsApp Channel</a>
 
-    <footer>
-        © 2026 Andy De La Cruz
-    </footer>
+<a href="https://www.facebook.com/share/1AomuuzQ6a/">Facebook</a>
 
-    <script>
-        // Mostrar animación de bienvenida (confeti + fade)
-        const elements = document.querySelectorAll('.fade');
+<a href="https://youtube.com/@iam_andydlc">YouTube</a>
 
-        function showOnScroll() {
-            elements.forEach(el => {
-                const top = el.getBoundingClientRect().top;
-                const trigger = window.innerHeight - 100;
-                if (top < trigger) {
-                    el.classList.add('show');
-                }
-            });
-        }
+<a href="https://www.tiktok.com/@iam_andydlc">TikTok</a>
 
-        window.addEventListener('scroll', showOnScroll);
-        showOnScroll();
-    </script>
+<a href="https://twitch.com/iam_andydlc">Twitch</a>
+
+</div>
+
+<div class="seccion">
+
+<h2>¿Quieres obtener información más exclusiva de Andy?</h2>
+
+<p>Únete a la comunidad oficial.</p>
+
+<button onclick="mostrarLogin()">Unirme a PandyLoverFamily</button>
+
+<div class="login" id="login">
+
+<h3>Iniciar sesión</h3>
+
+<div class="opciones">
+
+<button onclick="loginSocial()">Entrar con Gmail</button>
+
+<button onclick="loginSocial()">Entrar con Facebook</button>
+
+<button onclick="loginSocial()">Entrar con TikTok</button>
+
+<button onclick="loginSocial()">Entrar con número de teléfono</button>
+
+</div>
+
+<input type="email" id="email" placeholder="Correo">
+
+<input type="password" id="pass" placeholder="Contraseña">
+
+<button onclick="login()">Entrar</button>
+
+</div>
+
+<div class="bienvenida" id="bienvenida">
+
+<h2>Bienvenido a la PandyLoverFamily 🎉</h2>
+
+<p>
+
+Ahora formas parte de esta gran familia.<br><br>
+
+Desde ahora recibirás las nuevas noticias y novedades de  
+<b>Andy De La Cruz</b>.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function mostrarLogin(){
+document.getElementById("login").style.display="block";
+}
+
+function login(){
+
+let email=document.getElementById("email").value;
+let pass=document.getElementById("pass").value;
+
+if(email!=="" && pass!==""){
+document.getElementById("bienvenida").style.display="block";
+}
+
+}
+
+function loginSocial(){
+document.getElementById("bienvenida").style.display="block";
+}
+
+</script>
+
 </body>
 </html>
